@@ -33,7 +33,9 @@ def call(body) {
       script {
         currentBuild.result = 'SUCCESS'
       }
-       sparkSend ( credentialsId: 'sparkbot',  message: '${JOB_NAME}-${BUILD_NUMBER}- ${BUILD_RESULT}- ${NODE_NAME}-${currentBuild.currentResult}-${JOB_URL}', messageType: 'markdown', spaceList: [[spaceId: '768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'common']] )
+      // sparkSend ( credentialsId: 'sparkbot',  message: '${JOB_NAME}-${BUILD_NUMBER}- ${BUILD_RESULT}- ${NODE_NAME}-${currentBuild.currentResult}-${JOB_URL}', messageType: 'markdown', spaceList: [[spaceId: '768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'common']] )
+    sparkNotifyPostBuilder ( disable(false) , skipOnFailure(false) , skipOnSuccess(false) , skipOnAborted(false) , skipOnUnstable(false) , message: '[$JOB_NAME]($BUILD_URL)', messageType: 'markdown', spaceList: [[spaceId: '768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'Spark-messg']], credentialsId: 'webexbot')    
+        
     }  
         
      failure {
