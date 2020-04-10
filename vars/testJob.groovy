@@ -23,29 +23,28 @@ def call(body) {
            steps    {
                     script  {
                             echo "Welcome to script file"
-                        currentBuild.displayName = "${env.display}"
-                        currentBuild.result = "${env.result}"
-                        echo ${currentBuild.displayName}
+                        
                     }
                 }
           }
-            post {
+     }//eod 
+    post {
     success {
       script {
         currentBuild.result = 'SUCCESS'
       }
-       sparkSend ( credentialsId: 'sparkbot',  message: '${JOB_NAME}-(${BUILD_NUMBER})-(${currentBuild.result})-${JOB_URL}', messageType: 'markdown', spaceList: [[spaceId: '768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'common']] )
+       sparkSend ( credentialsId: 'sparkbot',  message: '${JOB_NAME}-(${BUILD_NUMBER})-(${currentBuild.currentResult})-${JOB_URL}', messageType: 'markdown', spaceList: [[spaceId: '768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'common']] )
     }  
         
      failure {
       script {
         currentBuild.result = 'FAILURE'
       }
-   sparkSend ( credentialsId: 'sparkbot',  message: '${JOB_NAME} - ${BUILD_RESULT} - ${JOB_URL}', messageType: 'markdown', spaceList: [[spaceId: '768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'common']] )
+   sparkSend ( credentialsId: 'sparkbot',  message: '${JOB_NAME} - (${BUILD_NUMBER})-(${currentBuild.currentResult}) - ${BUILD_RESULT} - ${JOB_URL}', messageType: 'markdown', spaceList: [[spaceId: '768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'common']] )
      }
     }     
           
-        }//eod 
+        
         
         
     } //eod
