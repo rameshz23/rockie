@@ -23,6 +23,7 @@ def call(body) {
            steps    {
                     script  {
                             echo "Welcome to script file"
+                        echo $env.Branch_name
                     }
             }
           }
