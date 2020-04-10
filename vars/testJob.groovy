@@ -30,7 +30,9 @@ def call(body) {
     } catch (Exception err) {
         currentBuild.result = 'FAILURE'
     }
-    echo "RESULT: ${currentBuild.result}"    
+    echo "RESULT: ${currentBuild.result} > BUILD_RESULT"
+                        
+                        
                     }
             }
           }
@@ -42,14 +44,14 @@ def call(body) {
       script {
         currentBuild.result = 'SUCCESS'
       }
-       sparkSend ( credentialsId: 'sparkbot', message: '${JOB_NAME} - ${currentBuild.result} - ${JOB_URL}', messageType: 'markdown', spaceList: [[spaceId: '768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'common']] )
+       sparkSend ( credentialsId: 'sparkbot', message: '${JOB_NAME} - ${BUILD_RESULT} - ${JOB_URL}', messageType: 'markdown', spaceList: [[spaceId: '768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'common']] )
     }  
         
      failure {
       script {
         currentBuild.result = 'FAILURE'
       }
-   sparkSend ( credentialsId: 'sparkbot', message: '${JOB_NAME} - ${currentBuild.result} - ${JOB_URL}', messageType: 'markdown', spaceList: [[spaceId: '768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'common']] )
+   sparkSend ( credentialsId: 'sparkbot', message: '${JOB_NAME} - ${BUILD_RESULT} - ${JOB_URL}', messageType: 'markdown', spaceList: [[spaceId: '768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'common']] )
      }
     }         
     } //eod pip
