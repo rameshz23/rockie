@@ -23,6 +23,9 @@ def call(body) {
            steps    {
                     script  {
                             echo "Welcome to script file"
+                        currentBuild.displayName = "${env.display}"
+                        currentBuild.result = "${env.result}"
+                        echo env.display and env.result
                     }
                 }
           }
