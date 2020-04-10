@@ -23,7 +23,14 @@ def call(body) {
            steps    {
                     script  {
                             echo "Welcome to script file"
-                        echo $env.Branch_name
+                        try {
+        // do something that fails
+        sh "exit 1"
+        currentBuild.result = 'SUCCESS'
+    } catch (Exception err) {
+        currentBuild.result = 'FAILURE'
+    }
+    echo "RESULT: ${currentBuild.result}"    
                     }
             }
           }
