@@ -24,8 +24,8 @@ def call(body) {
                     script  {
                             echo "Welcome to script file"
                         echo env.BUILD_NUMBER
-                        echo env.BUILD12
-                        echo env.User
+                        println env.BUILD12
+                        echo env.USER
                         noti currentBuild.result
                        // noti(currentBuild.currentResult)
                     }
