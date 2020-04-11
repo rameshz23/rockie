@@ -23,8 +23,8 @@ def call(body) {
            steps    {
                     script  {
                             echo "Welcome to script file"
-                       // noti currentBuild.result
-                        noti(currentBuild.currentResult)
+                        noti currentBuild.result
+                       // noti(currentBuild.currentResult)
                     }
                 }
          /*     post {
