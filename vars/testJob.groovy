@@ -23,6 +23,7 @@ def call(body) {
            steps    {
                     script  {
                             echo "Welcome to script file"
+                        echo env.BUILD_NUMBER
                         noti currentBuild.result
                        // noti(currentBuild.currentResult)
                     }
