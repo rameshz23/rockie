@@ -26,16 +26,17 @@ def call(body) {
                         echo env.BUILD_NUMBER
                        // echo ${env.BUILD12}
                         echo env.USER
-                        noti currentBuild.result
+                       // noti currentBuild.result
                        //noti(currentBuild.currentResult)
-                        
+                        noti Details.status
                     }
                 }
-         /*     post {
-    always {
-      noti currentBuild.result
-    }
-  } */
+              
+         /* post {
+                always {
+                    noti currentBuild.result
+                     }
+         } */
           }
      }//eod 
         
