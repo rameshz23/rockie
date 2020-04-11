@@ -27,7 +27,8 @@ def call(body) {
                         echo ${env.BUILD12}
                         echo env.USER
                         noti currentBuild.result
-                       // noti(currentBuild.currentResult)
+                       //noti(currentBuild.currentResult)
+                        
                     }
                 }
          /*     post {
