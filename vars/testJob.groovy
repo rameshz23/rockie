@@ -23,14 +23,15 @@ def call(body) {
            steps    {
                     script  {
                             echo "Welcome to script file"
+                        noti currentBuild.result
                         
                     }
                 }
-              post {
+         /*     post {
     always {
       noti currentBuild.result
     }
-  }
+  } */
           }
      }//eod 
         
