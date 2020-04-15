@@ -8,9 +8,9 @@ def call(body) {
     
     pipeline {
         parameters{ text (name: 'deploy', defaultValue: ' ', description: 'MIN HOUR DOM MON DOW CMD') }
-        def par="config.deploy"
+      //  def par="config.deploy"
         
-       triggers { cron("${par")  }
+        triggers { cron("${params.deploy}")  }
             options {
                 buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
                 }
