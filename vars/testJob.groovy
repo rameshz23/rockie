@@ -5,12 +5,12 @@ def call(body) {
     body.delegate = config
     body()
  //   def param = "${config.Minute} ${config.Hour} ${config.DOM} ${config.MONTH} ${config.DOW} "
-    
+    def param =" DEPLOY_ENV "
 
     
     pipeline {
-        parameters{ string(name: 'DEPLOY_ENV', defaultValue: ' ', description: '') }
-        //  triggers { cron("${DEPLOY_ENV}")}
+        parameters{ text(name: 'DEPLOY_ENV', defaultValue: ' ', description: 'Enter some information about the person') }
+         triggers { cron("${DEPLOY_ENV}")}
             options {
                 buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
                 }
