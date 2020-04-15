@@ -4,11 +4,12 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
     body()
-    def param = " H * * * *  "
+    def param = "${config.Minute} ${config.Hour} ${config.DOM} ${config.MONTH} ${config.DOW} "
     
 
     
     pipeline {
+        parameters{ string(name: 'DEPLOY_ENV', defaultValue: '${param}', description: '') }
           triggers { cron("${param}")}
             options {
                 buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
