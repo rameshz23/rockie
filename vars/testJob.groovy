@@ -31,7 +31,7 @@ def call(body) {
                         echo env.USER
                       //  noti currentBuild.result
                        //noti(currentBuild.currentResult)
-                        echo env.DEPLOY_ENV
+                        echo ${config.DEPLOY_ENV}
                         
                     }
                 }
