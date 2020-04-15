@@ -10,7 +10,7 @@ def call(String buildStatus = 'STARTED') {
   
 if ( buildStatus == "SUCCESS" ) {
  // old sparkSend ( credentialsId: 'sparkbot',  message: ' success - ${JOB_NAME}-${BUILD_NUMBER}-${currentBuild.currentResult} - ${BUILD_RESULT} - ${JOB_URL}', messageType: 'markdown', spaceList: [[spaceId: '768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'common']] )  
- sparkSend ( credentialsId: 'webexbot',  message: ' success-${JOB_NAME}-${BUILD_NUMBER}-${BUILD_RESULT}-${BUILD_USER}-${JOB_URL}', messageType: 'markdown', spaceList: [[rId: {"${roomid}"}, spaceName: 'common']] ) 
+ sparkSend ( credentialsId: 'webexbot',  message: ' success-${JOB_NAME}-${BUILD_NUMBER}-${BUILD_RESULT}-${BUILD_USER}-${JOB_URL}', messageType: 'markdown', spaceList: [[rId: '${roomid}', spaceName: 'common']] ) 
 }
   else if( buildStatus == "FAILURE" ) { 
 sparkSend ( credentialsId: 'webexbot',  message: 'failure-${JOB_NAME}-${BUILD_NUMBER}-${BUILD_RESULT}-${BUILD_DISPLAY_NAME}-${BUILD_USER}-${JOB_URL}', messageType: 'markdown', spaceList: [[spaceId:'768a8310-7348-11ea-8dca-b5cc1c3a792c', spaceName: 'common']] )
