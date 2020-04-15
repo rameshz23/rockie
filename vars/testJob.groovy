@@ -5,8 +5,6 @@ def call(body) {
     body.delegate = config
     body()
  //   def param = "${config.Minute} ${config.Hour} ${config.DOM} ${config.MONTH} ${config.DOW} "
-    def param =" DEPLOY_ENV "
-
     
     pipeline {
         parameters{ text(name: 'DEPLOY_ENV', defaultValue: ' ', description: 'Enter some information about the person') }
