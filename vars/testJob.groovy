@@ -7,8 +7,8 @@ def call(body) {
  //   def param = "${config.Minute} ${config.Hour} ${config.DOM} ${config.MONTH} ${config.DOW} "
     
     pipeline {
-        parameters{ text(name: 'DEPLOY_ENV', defaultValue: ' ', description: 'Enter some information about the person') }
-       //  triggers { cron("${DEPLOY_ENV}")}
+        parameters{ string (name: 'DEPLOY_ENV', defaultValue: ' ', description: 'Enter some information about the person') }
+        triggers { cron("${DEPLOY_ENV}")}
             options {
                 buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
                 }
@@ -31,7 +31,7 @@ def call(body) {
                         echo env.USER
                       //  noti currentBuild.result
                        //noti(currentBuild.currentResult)
-                        echo $DEPLOY_ENV
+                        echo ${DEPLOY_ENV}
                         
                     }
                 }
