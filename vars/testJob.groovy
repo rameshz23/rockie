@@ -4,7 +4,7 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
     body()
- //   def param = "${config.Minute} ${config.Hour} ${config.DOM} ${config.MONTH} ${config.DOW} "
+ //   def pam = "${config.Minute} ${config.Hour} ${config.DOM} ${config.MONTH} ${config.DOW} "
     
     pipeline {
     //    parameters{ text (name: 'deploy', defaultValue: ' */2 * * * * ', description: 'MIN HOUR Day(Month) Month Day(Week) for every 2 mins */2 * * * *') }
