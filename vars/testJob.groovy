@@ -8,7 +8,7 @@ def call(body) {
     
     pipeline {
         parameters{ text(name: 'DEPLOY_ENV', defaultValue: ' ', description: 'Enter some information about the person') }
-         triggers { cron("${DEPLOY_ENV}")}
+       //  triggers { cron("${DEPLOY_ENV}")}
             options {
                 buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
                 }
