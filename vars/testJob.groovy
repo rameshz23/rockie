@@ -10,7 +10,7 @@ def call(body) {
     
     pipeline {
         parameters{ string(name: 'DEPLOY_ENV', defaultValue: ' ', description: '') }
-          triggers { cron("${DEPLOY_ENV}")}
+        //  triggers { cron("${DEPLOY_ENV}")}
             options {
                 buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
                 }
