@@ -1,8 +1,8 @@
 
 def call(String buildStatus = 'STARTED') {
-  def Id= " 768a8310-7348-11ea-8dca-b5cc1c3a792c"
-  def roomid= "${Id}"
-  print "${roomid}"
+//  def Id= " 768a8310-7348-11ea-8dca-b5cc1c3a792c"
+//  def roomid= "${Id}"
+//  print "${roomid}"
   
   
   // build status of null means successful
