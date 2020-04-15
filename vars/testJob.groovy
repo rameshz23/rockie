@@ -7,7 +7,7 @@ def call(body) {
  //   def param = "${config.Minute} ${config.Hour} ${config.DOM} ${config.MONTH} ${config.DOW} "
     
     pipeline {
-        parameters{ text (name: 'deploy', defaultValue: ' ', description: 'MIN HOUR DOM MON DOW CMD') }
+        parameters{ text (name: 'deploy', defaultValue: ' */30 * * * * ', description: 'MIN HOUR DOM MON DOW CMD') }
       //  def par="config.deploy"
         
         triggers { cron("${params.deploy}")  }
