@@ -4,8 +4,12 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
     body()
+    def param = " H * * * *  "
+    
 
+    
     pipeline {
+          triggers { cron("${param}")}
             options {
                 buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
                 }
